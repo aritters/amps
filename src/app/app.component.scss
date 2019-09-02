@@ -20,24 +20,8 @@ $toolbar-height: 3.5rem;
       .menu-list-item {
         &:hover,
         &.active {
-          background-color: #525150;
-
           ::ng-deep .mat-list-item-content {
             padding: 0 13px;
-          }
-
-          .menu-list-item-link {
-            color: #fdfdfd;
-          }
-        }
-
-        &.active {
-          border-left: 3px solid #0078d4;
-        }
-
-        &:hover {
-          &:not(.active) {
-            border-left: 3px solid #6c6b6a;
           }
         }
       }
@@ -46,5 +30,34 @@ $toolbar-height: 3.5rem;
 
   .content {
     padding: 1rem;
+  }
+}
+
+::ng-deep .black-theme {
+  .sidenav-container {
+    .sidebar {
+      .menu-list {
+        .menu-list-item {
+          &:hover,
+          &.active {
+            background-color: #616161;
+
+            .menu-list-item-link {
+              color: #fafafa;
+            }
+          }
+
+          &.active {
+            border-left: 3px solid #e0e0e0;
+          }
+
+          &:hover {
+            &:not(.active) {
+              border-left: 3px solid #9e9e9e;
+            }
+          }
+        }
+      }
+    }
   }
 }

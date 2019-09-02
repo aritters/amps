@@ -10,7 +10,8 @@ import { MenuItem } from './shared/models/menu-item';
 export class AppComponent {
 
   menuItems: MenuItem[] = [
-    { path: '/dashboard', icon: 'dashboard', title: 'Dashboard' }
+    { path: '/dashboard', icon: 'dashboard', title: 'Dashboard' },
+    { path: '/devices', icon: 'phonelink', title: 'Devices' }
   ];
 
   constructor() {
