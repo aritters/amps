@@ -11,42 +11,23 @@ $toolbar-height: 3.5rem;
   height: calc(100% - #{$toolbar-height});
 
   .sidebar {
-    position: fixed;
-    top: 3.5rem;
+    width: 56px;
     padding-top: 0.5rem;
-    bottom: 0;
-    left: 0;
-    width: 3.5rem;
-    height: 100vh;
-    z-index: 100;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #333333;
-    border-right: 1px solid rgba(0, 0, 0, 0.125);
 
-    .nav {
-      .nav-item {
-        height: 48px;
-        margin: 0;
-        padding: 0;
-
-        .nav-link {
-          font-size: 32px;
-          padding-left: 15px;
-          color: #adadad;
-
-          .material-icons {
-            font-size: 25px;
-          }
-        }
-
+    .menu-list {
+      .menu-list-item {
         &:hover,
         &.active {
           background-color: #525150;
 
-          .nav-link {
-            padding-left: 12px;
-            color: #fdfdfd !important;
+          ::ng-deep .mat-list-item-content {
+            padding: 0 13px;
+          }
+
+          .menu-list-item-link {
+            color: #fdfdfd;
           }
         }
 
@@ -64,5 +45,6 @@ $toolbar-height: 3.5rem;
   }
 
   .content {
+    padding: 1rem;
   }
 }

@@ -7,19 +7,28 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidebar" #sidenav opened mode="side">
-    <ul class="nav flex-column">
-      <li class="nav-item d-flex justify-content-start align-items-center"
-          [routerLinkActive]="['active']"
-          *ngFor="let item of menuItems"
-          [title]="item.title">
-        <a class="nav-link" [routerLink]="item.path">
-          <i class="material-icons">{{item.icon}}</i>
+
+    <mat-nav-list class="menu-list">
+      <mat-list-item class="menu-list-item">
+        <a class="menu-list-item-link d-flex justify-content-start align-items-center"
+           *ngFor="let item of menuItems"
+           [routerLink]="item.path"
+           [matTooltip]="item.title"
+           matTooltipPosition="above">
+          <mat-icon>{{item.icon}}</mat-icon>
         </a>
-      </li>
-    </ul>
+      </mat-list-item>
+    </mat-nav-list>
+
   </mat-sidenav>
 
   <mat-sidenav-content class="content">
-    Conteúdo
+
+    <mat-grid-list cols="12">
+      <mat-grid-tile colspan="2" rowspan="1">
+        Conteúdo
+      </mat-grid-tile>
+    </mat-grid-list>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

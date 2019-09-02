@@ -8,6 +8,7 @@ import { MenuItem } from './shared/models/menu-item';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   menuItems: MenuItem[] = [
     { path: '/dashboard', icon: 'dashboard', title: 'Dashboard' }
   ];
