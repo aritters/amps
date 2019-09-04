@@ -30,10 +30,10 @@
   <mat-sidenav class="sidebar" #sidenav opened mode="side">
 
     <mat-nav-list class="menu-list">
-      <mat-list-item class="menu-list-item" *ngFor="let item of menuItems">
+      <mat-list-item class="menu-list-item" *ngFor="let item of navigation">
         <a class="menu-list-item-link d-flex justify-content-start align-items-center"
            [routerLink]="item.path"
-           [matTooltip]="item.title"
+           [matTooltip]="item.label | translate"
            matTooltipPosition="above">
           <mat-icon>{{item.icon}}</mat-icon>
         </a>
