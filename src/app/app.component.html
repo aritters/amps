@@ -1,16 +1,36 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar d-flex align-items-center mat-elevation-z8">
+
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  Header
+
+  <span routerLink="" class="branding spacer d-inline d-sm-none">
+    <img [src]="logo" />
+  </span>
+
+  <span routerLink="" class="branding spacer d-none d-sm-inline d-md-none">
+    <img [src]="logo" /> {{ 'anms.title.short' | translate }}
+  </span>
+
+  <span routerLink="" class="branding spacer d-none d-md-inline">
+    <img [src]="logo" /> {{ 'anms.title.long' | translate }}
+  </span>
+
+  <span *ngIf="language$ | async as language">
+    <mat-select [ngModel]="language" (selectionChange)="onLanguageSelect($event)">
+      <mat-option *ngFor="let l of languages" [value]="l.value">
+        {{ l.name | translate }}
+      </mat-option>
+    </mat-select>
+  </span>
+
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="sidebar" #sidenav opened mode="side">
 
     <mat-nav-list class="menu-list">
-      <mat-list-item class="menu-list-item"
-                     *ngFor="let item of menuItems">
+      <mat-list-item class="menu-list-item" *ngFor="let item of menuItems">
         <a class="menu-list-item-link d-flex justify-content-start align-items-center"
            [routerLink]="item.path"
            [matTooltip]="item.title"
