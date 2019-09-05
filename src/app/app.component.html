@@ -30,18 +30,21 @@
   <mat-sidenav class="sidebar" #sidenav opened mode="side">
 
     <mat-nav-list class="menu-list">
-      <mat-list-item class="menu-list-item d-flex justify-content-center align-items-center" *ngFor="let item of navigation">
+      <mat-list-item class="menu-list-item d-flex justify-content-center align-items-center"
+                     routerLinkActive="active"
+                     *ngFor="let item of navigation">
         <a class="menu-list-item-link"
            [routerLink]="item.path"
            [matTooltip]="item.label | translate"
            matTooltipPosition="above">
-          <mat-icon>{{item.icon}}</mat-icon>
+          <mat-icon color="accent">{{item.icon}}</mat-icon>
         </a>
       </mat-list-item>
     </mat-nav-list>
 
   </mat-sidenav>
 
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

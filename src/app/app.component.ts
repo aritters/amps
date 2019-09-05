@@ -27,7 +27,7 @@ export class AppComponent {
 
   navigation = [
     { path: '/dashboard', icon: 'dashboard', label: 'anms.navigation.dashboard' },
-    { path: '/devices', icon: 'phonelink', label: 'anms.navigation.devices' }
+    { path: '/settings', icon: 'build', label: 'anms.navigation.settings' }
   ];
 
   themes = [

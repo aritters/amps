@@ -21,6 +21,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule
   ],
   declarations: [
   ],
@@ -75,7 +77,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }

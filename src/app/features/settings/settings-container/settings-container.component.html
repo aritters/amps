@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{ 'anms.settings.title' | translate }}</h1>
+    </div>
+  </div>
+  <br>
+  <ng-container *ngIf="settings$ | async as settings">
+    <div class="row">
+
+      <div class="col-md-6 group">
+        <h2>{{ 'anms.settings.general.title' | translate }}</h2>
+        <div class="icon-form-field">
+          <mat-icon color="accent">language</mat-icon>
+          <mat-form-field>
+            <mat-select [placeholder]="'anms.settings.general.placeholder' | translate"
+                        [ngModel]="settings.language"
+                        (selectionChange)="onLanguageSelect($event)"
+                        name="language">
+              <mat-option *ngFor="let l of languages" [value]="l.value">
+                {{ 'anms.settings.general.language.' + l.label | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-6 group">
+        <h2>{{ 'anms.settings.themes.title' | translate }}</h2>
+        <div class="icon-form-field">
+          <mat-icon color="accent">palette</mat-icon>
+          <mat-form-field>
+            <mat-select [placeholder]="'anms.settings.themes.placeholder' | translate"
+                        [ngModel]="settings.theme"
+                        (selectionChange)="onThemeSelect($event)"
+                        name="themes">
+              <mat-option *ngFor="let t of themes" [value]="t.value">
+                {{ 'anms.settings.themes.' + t.label | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</div>
