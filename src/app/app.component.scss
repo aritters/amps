@@ -55,6 +55,10 @@ $toolbar-height: 4rem;
 
       .menu-list-item {
         height: 64px;
+
+        ::ng-deep .mat-list-item-content {
+          padding: 0 22px;
+        }
       }
     }
   }
