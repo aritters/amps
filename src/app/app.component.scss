@@ -35,27 +35,26 @@ $toolbar-height: 4rem;
     width: 100px;
     font-size: 14px;
   }
+
+  * {
+    outline: none;
+  }
 }
 
 .sidenav-container {
   height: 100%;
 
   .sidebar {
-    width: 56px;
-    padding-top: 0.5rem;
+    width: 4.5rem;
+    padding-top: 1rem;
     overflow-x: hidden;
     overflow-y: auto;
 
     .menu-list {
-      padding-top: 80px;
+      padding-top: $toolbar-height;
 
       .menu-list-item {
-        &:hover,
-        &.active {
-          ::ng-deep .mat-list-item-content {
-            padding: 0 13px;
-          }
-        }
+        height: 64px;
       }
     }
   }
