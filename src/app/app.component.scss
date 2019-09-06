@@ -75,12 +75,12 @@ $toolbar-height: 4rem;
       .menu-list {
         .menu-list-item {
           &.active {
-            border-left: 3px solid var(--anms-primary) !important;
+            border-left: 3px solid #e0e0e0 !important;
           }
 
           &:hover {
             &:not(.active) {
-              border-left: 3px solid var(--anms-accent) !important;
+              border-left: 3px solid #9e9e9e !important;
             }
           }
         }
@@ -95,12 +95,12 @@ $toolbar-height: 4rem;
       .menu-list {
         .menu-list-item {
           &.active {
-            border-left: 3px solid #03a9f4;
+            border-left: 3px solid #03a9f4 !important;
           }
 
           &:hover {
             &:not(.active) {
-              border-left: 3px solid #b3e5fc;
+              border-left: 3px solid #b3e5fc !important;
             }
           }
         }
