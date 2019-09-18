@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
 import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from './settings.actions';
-import { SettingsState } from './settings.model';
+import { SettingsState } from './settings.models';
 
 export const initialState: SettingsState = {
   language: 'pt-br',

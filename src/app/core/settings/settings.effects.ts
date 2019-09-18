@@ -10,7 +10,7 @@ import { selectSettingsState } from '../core.state';
 import { TitleService } from '../title/title.service';
 import { LocalStorageService } from './../local-storage/local-storage.service';
 import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from './settings.actions';
-import { State } from './settings.model';
+import { State } from './settings.models';
 import { selectSettingsLanguage, selectSettingsTheme } from './settings.selectors';
 
 export const SETTINGS_KEY = 'SETTINGS';

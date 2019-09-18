@@ -9,53 +9,25 @@
 @include mat-core();
 
 @import './assets/scss/themes/default-theme';
-@import './assets/scss/themes/light-theme';
+// @import './assets/scss/themes/light-theme';
 @import './assets/scss/themes/black-theme';
-@import './assets/scss/themes/nature-theme';
-
-$anms-color-primary: $anms-color-default-primary;
-$anms-color-accent: $anms-color-default-accent;
-$anms-color-warn: $anms-color-default-warn;
+// @import './assets/scss/themes/nature-theme';
 
 .default-theme {
   @include angular-material-theme($anms-theme);
-
-  :root {
-    --anms-primary: $anms-color-default-primary;
-    --anms-accent: $anms-color-default-accent;
-    --anms-warn: $anms-color-default-warn;
-  }
 }
 
-.light-theme {
-  @include angular-material-theme($anms-light-theme);
-
-  :root {
-    --anms-primary: $anms-color-light-primary;
-    --anms-accent: $anms-color-light-accent;
-    --anms-warn: $anms-color-light-warn;
-  }
-}
+// .light-theme {
+//   @include angular-material-theme($anms-light-theme);
+// }
 
 .black-theme {
   @include angular-material-theme($anms-black-theme);
-
-  :root {
-    --anms-primary: $anms-color-black-primary;
-    --anms-accent: $anms-color-black-accent;
-    --anms-warn: $anms-color-black-warn;
-  }
 }
 
-.nature-theme {
-  @include angular-material-theme($anms-nature-theme);
-
-  :root {
-    --anms-primary: $anms-color-nature-primary;
-    --anms-accent: $anms-color-nature-accent;
-    --anms-warn: $anms-color-nature-warn;
-  }
-}
+// .nature-theme {
+//   @include angular-material-theme($anms-nature-theme);
+// }
 
 html,
 body {

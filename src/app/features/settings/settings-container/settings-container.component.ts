@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from '../../../core/settings/settings.actions';
-import { SettingsState, State } from '../../../core/settings/settings.model';
+import { SettingsState, State } from '../../../core/settings/settings.models';
 import { selectSettings } from '../../../core/settings/settings.selectors';
 
 @Component({
@@ -16,8 +16,8 @@ export class SettingsContainerComponent implements OnInit {
 
   themes = [
     { value: 'default-theme', label: 'blue' },
-    { value: 'light-theme', label: 'light' },
-    { value: 'nature-theme', label: 'nature' },
+    // { value: 'light-theme', label: 'light' },
+    // { value: 'nature-theme', label: 'nature' },
     { value: 'black-theme', label: 'dark' }
   ];
 
