@@ -5,6 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "start-staging": "ng serve -c staging",
+    "build-staging": "ng build -c staging",
+    "start-prod": "ng serve --prod",
+    "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
