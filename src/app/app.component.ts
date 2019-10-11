@@ -15,19 +15,19 @@ import { selectSettingsTheme } from './core/settings/settings.selectors';
 export class AppComponent {
 
   languages = [
-    { value: 'en', name: 'anms.settings.general.language.en' },
-    { value: 'de', name: 'anms.settings.general.language.de' },
-    { value: 'sk', name: 'anms.settings.general.language.sk' },
-    { value: 'fr', name: 'anms.settings.general.language.fr' },
-    { value: 'es', name: 'anms.settings.general.language.es' },
-    { value: 'pt-br', name: 'anms.settings.general.language.pt-br' },
-    { value: 'zh-cn', name: 'anms.settings.general.language.zh-cn' },
-    { value: 'he', name: 'anms.settings.general.language.he' }
+    { value: 'en', name: 'amps.settings.general.language.en' },
+    { value: 'de', name: 'amps.settings.general.language.de' },
+    { value: 'sk', name: 'amps.settings.general.language.sk' },
+    { value: 'fr', name: 'amps.settings.general.language.fr' },
+    { value: 'es', name: 'amps.settings.general.language.es' },
+    { value: 'pt-br', name: 'amps.settings.general.language.pt-br' },
+    { value: 'zh-cn', name: 'amps.settings.general.language.zh-cn' },
+    { value: 'he', name: 'amps.settings.general.language.he' }
   ];
 
   navigation = [
-    { path: '/dashboard', icon: 'dashboard', label: 'anms.navigation.dashboard' },
-    { path: '/settings', icon: 'build', label: 'anms.navigation.settings' }
+    { path: '/dashboard', icon: 'dashboard', label: 'amps.navigation.dashboard' },
+    { path: '/settings', icon: 'build', label: 'amps.navigation.settings' }
   ];
 
   themes = [

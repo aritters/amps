@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: SettingsContainerComponent,
-    data: { title: 'anms.navigation.settings' }
+    data: { title: 'amps.navigation.settings' }
   }
 ];
 

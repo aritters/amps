@@ -7,7 +7,7 @@ import { SettingsState, State } from '../../../core/settings/settings.models';
 import { selectSettings } from '../../../core/settings/settings.selectors';
 
 @Component({
-  selector: 'anms-settings',
+  selector: 'amps-settings',
   templateUrl: './settings-container.component.html',
   styleUrls: ['./settings-container.component.scss']
 })

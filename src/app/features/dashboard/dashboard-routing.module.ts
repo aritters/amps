@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardContainerComponent,
-    data: { title: 'anms.navigation.dashboard' }
+    data: { title: 'amps.navigation.dashboard' }
   }];
 
 @NgModule({

@@ -15,7 +15,7 @@ import { selectSettingsLanguage, selectSettingsTheme } from './settings.selector
 
 export const SETTINGS_KEY = 'SETTINGS';
 
-const INIT = of('anms-init-effect-trigger');
+const INIT = of('amps-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {
