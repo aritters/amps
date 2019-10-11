@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { merge, of } from 'rxjs';
@@ -28,62 +28,54 @@ export class SettingsEffects {
     private translateService: TranslateService
   ) { }
 
-  persistSettings = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(
-          actionSettingsChangeLanguage,
-          actionSettingsChangeTheme
-        ),
-        withLatestFrom(this.store.pipe(select(selectSettingsState))),
-        tap(([action, settings]) =>
-          this.localStorageService.setItem(SETTINGS_KEY, settings)
-        )
+  @Effect({ dispatch: false })
+  persistSettings = () =>
+    this.actions$.pipe(
+      ofType(
+        actionSettingsChangeLanguage,
+        actionSettingsChangeTheme
       ),
-    { dispatch: false }
-  );
+      withLatestFrom(this.store.pipe(select(selectSettingsState))),
+      tap(([action, settings]) =>
+        this.localStorageService.setItem(SETTINGS_KEY, settings)
+      )
+    )
 
-  updateTheme = createEffect(
-    () =>
-      merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(
-        withLatestFrom(this.store.pipe(select(selectSettingsTheme))),
-        tap(([action, theme]) => {
-          const classList = document.body.classList;
-          const toRemove = Array.from(classList).filter((item: string) =>
-            item.includes('-theme')
-          );
-          if (toRemove.length) {
-            classList.remove(...toRemove);
-          }
-          classList.add(theme);
-        })
-      ),
-    { dispatch: false }
-  );
+  @Effect({ dispatch: false })
+  updateTheme = () =>
+    merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(
+      withLatestFrom(this.store.pipe(select(selectSettingsTheme))),
+      tap(([action, theme]) => {
+        const classList = document.body.classList;
+        const toRemove = Array.from(classList).filter((item: string) =>
+          item.includes('-theme')
+        );
+        if (toRemove.length) {
+          classList.remove(...toRemove);
+        }
+        classList.add(theme);
+      })
+    )
 
-  setLanguage = createEffect(
-    () =>
-      this.store.pipe(
-        select(selectSettingsLanguage),
-        distinctUntilChanged(),
-        tap(language => this.translateService.use(language))
-      ),
-    { dispatch: false }
-  );
+  @Effect({ dispatch: false })
+  setLanguage = () =>
+    this.store.pipe(
+      select(selectSettingsLanguage),
+      distinctUntilChanged(),
+      tap(language => this.translateService.use(language))
+    )
 
-  setTitle = createEffect(
-    () =>
-      merge(
-        this.actions$.pipe(ofType(actionSettingsChangeLanguage)),
-        this.router.events.pipe(filter(event => event instanceof ActivationEnd))
-      ).pipe(
-        tap(() => {
-          this.titleService.setTitle(
-            this.router.routerState.snapshot.root,
-            this.translateService
-          );
-        })
-      ),
-    { dispatch: false }
-  );
+  @Effect({ dispatch: false })
+  setTitle = () =>
+    merge(
+      this.actions$.pipe(ofType(actionSettingsChangeLanguage)),
+      this.router.events.pipe(filter(event => event instanceof ActivationEnd))
+    ).pipe(
+      tap(() => {
+        this.titleService.setTitle(
+          this.router.routerState.snapshot.root,
+          this.translateService
+        );
+      })
+    )
 }

@@ -16,9 +16,9 @@ export class SettingsContainerComponent implements OnInit {
 
   themes = [
     { value: 'default-theme', label: 'blue' },
-    // { value: 'light-theme', label: 'light' },
-    // { value: 'nature-theme', label: 'nature' },
-    { value: 'black-theme', label: 'dark' }
+    { value: 'light-theme', label: 'light' },
+    { value: 'nature-theme', label: 'nature' },
+    { value: 'dark-theme', label: 'dark' }
   ];
 
   languages = [

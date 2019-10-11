@@ -32,7 +32,7 @@ export class AppComponent {
 
   themes = [
     'default-theme',
-    'black-theme'
+    'dark-theme'
   ];
 
   logo = require('./../assets/img/angular-white-transparent.svg');

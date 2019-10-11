@@ -9,29 +9,11 @@
 @include mat-core();
 
 @import './assets/scss/themes/default-theme';
-// @import './assets/scss/themes/light-theme';
-@import './assets/scss/themes/black-theme';
-// @import './assets/scss/themes/nature-theme';
+@import './assets/scss/themes/light-theme';
+@import './assets/scss/themes/dark-theme';
+@import './assets/scss/themes/nature-theme';
 
 @import './assets/scss/theme';
-
-.default-theme {
-  @include angular-material-theme($default-theme);
-  @include amps-theme($default-theme);
-}
-
-// .light-theme {
-//   @include angular-material-theme($light-theme);
-// }
-
-.black-theme {
-  @include angular-material-theme($black-theme);
-  @include amps-theme($black-theme);
-}
-
-// .nature-theme {
-//   @include angular-material-theme($nature-theme);
-// }
 
 html,
 body {
@@ -41,4 +23,24 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.default-theme {
+  @include angular-material-theme($default-theme);
+  @include amps-theme($default-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($light-theme);
+  @include amps-theme($light-theme);
+}
+
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+  @include amps-theme($dark-theme);
+}
+
+.nature-theme {
+  @include angular-material-theme($nature-theme);
+  @include amps-theme($nature-theme);
 }
