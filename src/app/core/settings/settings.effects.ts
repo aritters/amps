@@ -7,8 +7,8 @@ import { merge, of } from 'rxjs';
 import { distinctUntilChanged, filter, tap, withLatestFrom } from 'rxjs/operators';
 
 import { selectSettingsState } from '../core.state';
+import { LocalStorageService } from '../services/local-storage.service';
 import { TitleService } from '../title/title.service';
-import { LocalStorageService } from './../local-storage/local-storage.service';
 import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from './settings.actions';
 import { State } from './settings.models';
 import { selectSettingsLanguage, selectSettingsTheme } from './settings.selectors';
@@ -19,8 +19,9 @@ const INIT = of('amps-init-effect-trigger');
 
 @Injectable()
 export class SettingsEffects {
+
   constructor(
-    private actions$: Actions,
+    private actions: Actions,
     private store: Store<State>,
     private router: Router,
     private titleService: TitleService,
@@ -30,7 +31,7 @@ export class SettingsEffects {
 
   @Effect({ dispatch: false })
   persistSettings = () =>
-    this.actions$.pipe(
+    this.actions.pipe(
       ofType(
         actionSettingsChangeLanguage,
         actionSettingsChangeTheme
@@ -43,7 +44,7 @@ export class SettingsEffects {
 
   @Effect({ dispatch: false })
   updateTheme = () =>
-    merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(
+    merge(INIT, this.actions.pipe(ofType(actionSettingsChangeTheme))).pipe(
       withLatestFrom(this.store.pipe(select(selectSettingsTheme))),
       tap(([action, theme]) => {
         const classList = document.body.classList;
@@ -68,7 +69,7 @@ export class SettingsEffects {
   @Effect({ dispatch: false })
   setTitle = () =>
     merge(
-      this.actions$.pipe(ofType(actionSettingsChangeLanguage)),
+      this.actions.pipe(ofType(actionSettingsChangeLanguage)),
       this.router.events.pipe(filter(event => event instanceof ActivationEnd))
     ).pipe(
       tap(() => {

@@ -6,6 +6,7 @@ import { RouterStateUrl } from './router.state';
 
 @Injectable()
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
+
   serialize(routerState: RouterStateSnapshot): RouterStateUrl {
     let route = routerState.root;
 

@@ -11,8 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../../environments/environment';
 import { AuthEffects } from './auth/auth.effects';
 import { AppState, metaReducers, reducers, selectRouterState } from './core.state';
-import { LocalStorageService } from './local-storage/local-storage.service';
 import { CustomSerializer } from './router/custom-serializer';
+import { LocalStorageService } from './services/local-storage.service';
 import { SettingsEffects } from './settings/settings.effects';
 import { selectSettingsLanguage, selectSettingsTheme } from './settings/settings.selectors';
 import { TitleService } from './title/title.service';
@@ -22,7 +22,7 @@ export {
   LocalStorageService,
   AppState,
   selectRouterState,
-  selectSettingsTheme as selectTheme,
+  selectSettingsTheme,
   selectSettingsLanguage
 };
 
