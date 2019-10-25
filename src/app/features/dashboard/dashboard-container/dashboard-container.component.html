@@ -7,6 +7,25 @@
   <br>
   <div class="row">
     <div class="col-md-12 group">
+
+      <div class="refresh-button">
+        <button mat-fab (click)="onRefresh()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+
+      <div *ngIf="jokes$ | async as jokes; else no_jokes">
+
+        <mat-card *ngFor="let joke of jokes">
+          <mat-card-title>Joke #{{ joke.id }}</mat-card-title>
+          <mat-card-content>{{ joke.joke }}</mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <ng-template #no_jokes>
+        <div>No jokes found</div>
+      </ng-template>
     </div>
   </div>
 </div>
