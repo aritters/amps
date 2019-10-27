@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { LocalStorageService, selectSettingsLanguage } from './core/core.module';
-import { AppState } from './core/core.state';
-import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from './core/settings/settings.actions';
-import { selectSettingsTheme } from './core/settings/settings.selectors';
+// import { LocalStorageService, selectSettingsLanguage } from './core/core.module';
+// import { AppState } from './core/core.state';
+// import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from './core/settings/settings.actions';
+// import { selectSettingsTheme } from './core/settings/settings.selectors';
 
 @Component({
   selector: 'app-root',
@@ -41,20 +41,20 @@ export class AppComponent {
   theme$: Observable<string>;
 
   constructor(
-    private store: Store<AppState>,
-    private storageService: LocalStorageService
+    // private store: Store<AppState>,
+    // private storageService: LocalStorageService
   ) {
-    this.language$ = this.store.pipe(select(selectSettingsLanguage));
-    this.theme$ = this.store.pipe(select(selectSettingsTheme));
+    // this.language$ = this.store.pipe(select(selectSettingsLanguage));
+    // this.theme$ = this.store.pipe(select(selectSettingsTheme));
 
-    this.theme$.subscribe(t => console.log(`[THEME] ${t}`));
+    // this.theme$.subscribe(t => console.log(`[THEME] ${t}`));
   }
 
   onLanguageSelect({ value: language }) {
-    this.store.dispatch(actionSettingsChangeLanguage({ language }));
+    // this.store.dispatch(actionSettingsChangeLanguage({ language }));
   }
 
   onThemeSelect({ value: theme }) {
-    this.store.dispatch(actionSettingsChangeTheme({ theme }));
+    // this.store.dispatch(actionSettingsChangeTheme({ theme }));
   }
 }

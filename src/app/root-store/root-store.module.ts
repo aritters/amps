@@ -6,11 +6,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from './../../environments/environment';
 import { JokeStoreModule } from './joke-store';
+import { SettingsStoreModule } from './settings-store/settings-store.module';
 
 @NgModule({
   imports: [
     CommonModule,
     JokeStoreModule,
+    SettingsStoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

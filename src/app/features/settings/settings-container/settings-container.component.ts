@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from '../../../core/settings/settings.actions';
-import { SettingsState, State } from '../../../core/settings/settings.models';
-import { selectSettings } from '../../../core/settings/settings.selectors';
+import * as featureActions from '../../../root-store/settings-store/actions';
+import { RootStoreState } from './../../../root-store';
+import { selectSettingsState } from './../../../root-store/settings-store/selectors';
+import { State } from './../../../root-store/settings-store/state';
 
 @Component({
   selector: 'amps-settings',
@@ -12,7 +13,7 @@ import { selectSettings } from '../../../core/settings/settings.selectors';
   styleUrls: ['./settings-container.component.scss']
 })
 export class SettingsContainerComponent implements OnInit {
-  settings$: Observable<SettingsState>;
+  settings$: Observable<State>;
 
   themes = [
     { value: 'default-theme', label: 'blue' },
@@ -21,28 +22,13 @@ export class SettingsContainerComponent implements OnInit {
     { value: 'dark-theme', label: 'dark' }
   ];
 
-  languages = [
-    { value: 'en', label: 'en' },
-    { value: 'de', label: 'de' },
-    { value: 'sk', label: 'sk' },
-    { value: 'fr', label: 'fr' },
-    { value: 'es', label: 'es' },
-    { value: 'pt-br', label: 'pt-br' },
-    { value: 'zh-cn', label: 'zh-cn' },
-    { value: 'he', label: 'he' }
-  ];
-
-  constructor(private store: Store<State>) { }
+  constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.settings$ = this.store.pipe(select(selectSettings));
-  }
-
-  onLanguageSelect({ value: language }) {
-    this.store.dispatch(actionSettingsChangeLanguage({ language }));
+    this.settings$ = this.store$.pipe(select(selectSettingsState));
   }
 
   onThemeSelect({ value: theme }) {
-    this.store.dispatch(actionSettingsChangeTheme({ theme }));
+    this.store$.dispatch(new featureActions.ChangeThemeAction(theme));
   }
 }

@@ -9,23 +9,6 @@
     <div class="row">
 
       <div class="col-md-6 group">
-        <h2>{{ 'amps.settings.general.title' | translate }}</h2>
-        <div class="icon-form-field">
-          <mat-icon color="accent">language</mat-icon>
-          <mat-form-field>
-            <mat-select [placeholder]="'amps.settings.general.placeholder' | translate"
-                        [ngModel]="settings.language"
-                        (selectionChange)="onLanguageSelect($event)"
-                        name="language">
-              <mat-option *ngFor="let l of languages" [value]="l.value">
-                {{ 'amps.settings.general.language.' + l.label | translate }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="col-md-6 group">
         <h2>{{ 'amps.settings.themes.title' | translate }}</h2>
         <div class="icon-form-field">
           <mat-icon color="accent">palette</mat-icon>
