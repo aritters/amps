@@ -8,6 +8,7 @@ export const environment = {
   appName: 'Angular Starter',
   envName: 'DEV',
   production: false,
+  debug: true,
   i18nPrefix: '',
   versions: {
     app: packageJson.version,

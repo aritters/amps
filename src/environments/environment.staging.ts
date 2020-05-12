@@ -4,6 +4,7 @@ export const environment = {
   appName: 'Angular Starter',
   envName: 'PROD',
   production: false,
+  debug: false,
   i18nPrefix: '',
   versions: {
     app: packageJson.version,

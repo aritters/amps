@@ -2,22 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { actionSettingsChangeLanguage, actionSettingsChangeTheme } from '../../../core/settings/settings.actions';
-import { SettingsState, State } from '../../../core/settings/settings.models';
-import { selectSettings } from '../../../core/settings/settings.selectors';
+import { RootStoreState } from './../../../root-store';
+import { SettingsStoreActions, SettingsStoreSelectors, SettingsStoreState } from './../../../root-store/settings-store';
 
 @Component({
-  selector: 'amps-settings',
   templateUrl: './settings-container.component.html',
   styleUrls: ['./settings-container.component.scss']
 })
 export class SettingsContainerComponent implements OnInit {
-  settings$: Observable<SettingsState>;
+  settings$: Observable<SettingsStoreState.State>;
 
   themes = [
     { value: 'default-theme', label: 'blue' },
-    { value: 'light-theme', label: 'light' },
-    { value: 'nature-theme', label: 'nature' },
     { value: 'dark-theme', label: 'dark' }
   ];
 
@@ -32,17 +28,17 @@ export class SettingsContainerComponent implements OnInit {
     { value: 'he', label: 'he' }
   ];
 
-  constructor(private store: Store<State>) { }
+  constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.settings$ = this.store.pipe(select(selectSettings));
+    this.settings$ = this.store$.pipe(select(SettingsStoreSelectors.selectSettings));
   }
 
   onLanguageSelect({ value: language }) {
-    this.store.dispatch(actionSettingsChangeLanguage({ language }));
+    this.store$.dispatch(new SettingsStoreActions.ChangeLanguageAction({ language }));
   }
 
   onThemeSelect({ value: theme }) {
-    this.store.dispatch(actionSettingsChangeTheme({ theme }));
+    this.store$.dispatch(new SettingsStoreActions.ChangeThemeAction({ theme }));
   }
 }
