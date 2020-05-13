@@ -5,18 +5,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'dashboard',
-    loadChildren: () =>
-      import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: 'settings',
-    loadChildren: () =>
-      import('./features/settings/settings.module').then(m => m.SettingsModule)
+    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsModule)
   },
-  {
-    path: '**',
-    redirectTo: 'dashboard'
-  }
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
