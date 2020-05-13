@@ -1,3 +1,4 @@
+import { Settings } from './models';
 import { State } from './state';
 import { Injectable } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
@@ -16,7 +17,7 @@ const SETTINGS_KEY = 'SETTINGS';
 const INIT = of('amps-init-effect-trigger');
 
 @Injectable()
-export class SettingsStoreEffects {
+export class CoreStoreEffects {
 
   constructor(
     private actions$: Actions,
@@ -31,7 +32,7 @@ export class SettingsStoreEffects {
   initThemeEffect$ = INIT
     .pipe(
       tap(() => {
-        const { theme, language } = this.localStorageService.getItemAs<State>(SETTINGS_KEY) || { theme: null, language: null };
+        const { theme, language } = this.localStorageService.getItemAs<Settings>(SETTINGS_KEY) || { theme: null, language: null };
 
         if (!!theme) {
           this.store$.dispatch(new featureActions.ChangeThemeAction({ theme }));

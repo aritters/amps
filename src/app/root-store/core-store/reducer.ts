@@ -17,11 +17,29 @@ export function featureReducer(state = initialState, action: Actions): State {
         error: null
       };
     }
-    case ActionTypes.ERROR: {
+    case ActionTypes.THROW_ERROR: {
 
       return {
         ...state,
         error: action.payload.error
+      };
+    }
+    case ActionTypes.CHANGE_THEME: {
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          theme: action.payload.theme
+        }
+      };
+    }
+    case ActionTypes.CHANGE_LANGUAGE: {
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          language: action.payload.language
+        }
       };
     }
     default: {

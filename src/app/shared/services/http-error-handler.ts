@@ -37,11 +37,11 @@ export class HttpErrorHandler {
       console.error(`Error in ${serviceName}.${operation}`, response); // log to console instead
 
       if (!!errorMessage) {
-        return of(new coreActions.ErrorAction({ error: errorMessage }));
+        return of(new coreActions.ThrowErrorAction({ error: errorMessage }));
       }
 
       if (typeof response.error === 'string' || response.error instanceof String) {
-        return of(new coreActions.ErrorAction({ error: `${response.error}` }));
+        return of(new coreActions.ThrowErrorAction({ error: `${response.error}` }));
       }
 
       const { descricao, errors, title } = response.error || {
@@ -55,50 +55,50 @@ export class HttpErrorHandler {
       if (response.status === 400) {
 
         if (!!errors.length) {
-          return of(new coreActions.ErrorAction({ error: errors[0].message }));
+          return of(new coreActions.ThrowErrorAction({ error: errors[0].message }));
         }
 
         if (!!descricao) {
-          return of(new coreActions.ErrorAction({ error: descricao }));
+          return of(new coreActions.ThrowErrorAction({ error: descricao }));
         }
 
         if (!!title) {
-          return of(new coreActions.ErrorAction({
+          return of(new coreActions.ThrowErrorAction({
             error: title === 'One or more validation errors occurred'
               ? 'Um ou mais campos não foram informados'
               : title
           }));
         }
 
-        return of(new coreActions.ErrorAction({ error: defaultMessage }));
+        return of(new coreActions.ThrowErrorAction({ error: defaultMessage }));
       }
 
       if (response.status === 404) {
 
         if (!!descricao) {
-          return of(new coreActions.ErrorAction({ error: descricao }));
+          return of(new coreActions.ThrowErrorAction({ error: descricao }));
         }
 
-        return of(new coreActions.ErrorAction({ error: defaultMessage }));
+        return of(new coreActions.ThrowErrorAction({ error: defaultMessage }));
       }
 
       if (response.status === 401) {
-        return of(new coreActions.ErrorAction({ error: 'Você precisa entrar para acessar este recurso' }));
+        return of(new coreActions.ThrowErrorAction({ error: 'Você precisa entrar para acessar este recurso' }));
       }
 
       if (response.status === 403) {
-        return of(new coreActions.ErrorAction({ error: 'Você não possui autorização para acessar este recurso' }));
+        return of(new coreActions.ThrowErrorAction({ error: 'Você não possui autorização para acessar este recurso' }));
       }
 
       if (!!descricao) {
-        return of(new coreActions.ErrorAction({ error: descricao }));
+        return of(new coreActions.ThrowErrorAction({ error: descricao }));
       }
 
       if (!!statusText && statusText !== 'Unknown Error') {
-        return of(new coreActions.ErrorAction({ error: statusText }));
+        return of(new coreActions.ThrowErrorAction({ error: statusText }));
       }
       // Let the app keep running by returning a safe result.
-      return of(new coreActions.ErrorAction({ error: defaultMessage }));
+      return of(new coreActions.ThrowErrorAction({ error: defaultMessage }));
     };
   }
 }

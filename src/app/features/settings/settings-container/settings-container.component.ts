@@ -3,14 +3,15 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { RootStoreState } from './../../../root-store';
-import { SettingsStoreActions, SettingsStoreSelectors, SettingsStoreState } from './../../../root-store/settings-store';
+import { CoreStoreActions, CoreStoreSelectors } from './../../../root-store/core-store';
+import { Settings } from './../../../root-store/core-store/models';
 
 @Component({
   templateUrl: './settings-container.component.html',
   styleUrls: ['./settings-container.component.scss']
 })
 export class SettingsContainerComponent implements OnInit {
-  settings$: Observable<SettingsStoreState.State>;
+  settings$: Observable<Settings>;
 
   themes = [
     { value: 'default-theme', label: 'blue' },
@@ -31,14 +32,14 @@ export class SettingsContainerComponent implements OnInit {
   constructor(private store$: Store<RootStoreState.State>) { }
 
   ngOnInit() {
-    this.settings$ = this.store$.pipe(select(SettingsStoreSelectors.selectSettings));
+    this.settings$ = this.store$.pipe(select(CoreStoreSelectors.selectSettings));
   }
 
   onLanguageSelect({ value: language }) {
-    this.store$.dispatch(new SettingsStoreActions.ChangeLanguageAction({ language }));
+    this.store$.dispatch(new CoreStoreActions.ChangeLanguageAction({ language }));
   }
 
   onThemeSelect({ value: theme }) {
-    this.store$.dispatch(new SettingsStoreActions.ChangeThemeAction({ theme }));
+    this.store$.dispatch(new CoreStoreActions.ChangeThemeAction({ theme }));
   }
 }

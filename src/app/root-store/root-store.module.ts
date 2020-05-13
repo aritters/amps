@@ -10,7 +10,6 @@ import { CoreStoreModule } from './core-store/core-store.module';
 import { JokeStoreModule } from './joke-store';
 import { metaReducers } from './reducer';
 import { RouterStoreModule } from './router-store';
-import { SettingsStoreModule } from './settings-store';
 
 const storeConfig: StoreConfig<unknown, Action> = { metaReducers };
 
@@ -19,7 +18,6 @@ const storeConfig: StoreConfig<unknown, Action> = { metaReducers };
     CommonModule,
     RouterStoreModule,
     CoreStoreModule,
-    SettingsStoreModule,
     JokeStoreModule,
     StoreModule.forRoot({}, storeConfig),
     EffectsModule.forRoot([]),

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { SettingsStoreActions, SettingsStoreSelectors } from './root-store/settings-store';
+import { CoreStoreActions, CoreStoreSelectors } from './root-store/core-store';
 import { State } from './root-store/state';
 import { LocalStorageService } from './shared/services/local-storage.service';
 
@@ -43,15 +43,15 @@ export class AppComponent {
     private store: Store<State>,
     private storageService: LocalStorageService
   ) {
-    this.language$ = this.store.pipe(select(SettingsStoreSelectors.selectLanguage));
-    this.theme$ = this.store.pipe(select(SettingsStoreSelectors.selectTheme));
+    this.language$ = this.store.pipe(select(CoreStoreSelectors.selectLanguage));
+    this.theme$ = this.store.pipe(select(CoreStoreSelectors.selectTheme));
   }
 
   onLanguageSelect({ value: language }) {
-    this.store.dispatch(new SettingsStoreActions.ChangeLanguageAction({ language }));
+    this.store.dispatch(new CoreStoreActions.ChangeLanguageAction({ language }));
   }
 
   onThemeSelect({ value: theme }) {
-    this.store.dispatch(new SettingsStoreActions.ChangeThemeAction({ theme }));
+    this.store.dispatch(new CoreStoreActions.ChangeThemeAction({ theme }));
   }
 }
