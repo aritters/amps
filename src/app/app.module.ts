@@ -30,7 +30,7 @@ import { SharedModule } from './shared/shared.module';
     // app
     AppRoutingModule,
 
-    StoreRouterConnectingModule.forRoot({ serializer: DefaultRouterStateSerializer }),
+    StoreRouterConnectingModule.forRoot({ serializer: CustomRouterStateSerializer }),
 
     // 3rd party
     TranslateModule.forRoot({
@@ -41,12 +41,12 @@ import { SharedModule } from './shared/shared.module';
       }
     })
   ],
-  providers: [
-    {
-      provide: RouterStateSerializer,
-      useClass: CustomRouterStateSerializer
-    }
-  ],
+  // providers: [
+  //   {
+  //     provide: RouterStateSerializer,
+  //     useClass: CustomRouterStateSerializer
+  //   }
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

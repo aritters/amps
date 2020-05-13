@@ -34,7 +34,7 @@ export class AppComponent {
     'dark-theme'
   ];
 
-  logo = require('./../assets/img/angular-white-transparent.svg');
+  logo = './../assets/img/angular-white-transparent.svg';
 
   language$: Observable<string>;
   theme$: Observable<string>;
