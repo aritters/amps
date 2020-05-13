@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Joke } from './../../shared/models/joke';
+import { Joke } from './models';
 
 export enum ActionTypes {
   LOAD_REQUEST = '[Joke] Load Request',

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { JokeStoreActions, JokeStoreSelectors, RootStoreState } from './../../../root-store';
-import { Joke } from './../../../shared/models/joke';
+import { Joke } from './../../../root-store/joke-store/models';
 
 @Component({
   selector: 'app-dashboard-container',

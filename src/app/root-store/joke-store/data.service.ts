@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Joke, JokeResult } from '../models';
+import { Joke, JokeResult } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {

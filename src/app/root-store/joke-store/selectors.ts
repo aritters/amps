@@ -1,11 +1,11 @@
 import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
 
-import { Joke } from './../../shared/models/joke';
+import { Joke } from './models';
 import { featureAdapter, State } from './state';
 
-export const getError = (state: State): any => state.error;
+const getError = (state: State): any => state.error;
 
-export const getIsLoading = (state: State): boolean => state.isLoading;
+const getIsLoading = (state: State): boolean => state.isLoading;
 
 export const selectJokeState: MemoizedSelector<object, State> = createFeatureSelector<State>('joke');
 

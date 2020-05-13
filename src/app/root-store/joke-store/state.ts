@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
-import { Joke } from './../../shared/models/joke';
+import { Joke } from './models';
 
 export const featureAdapter: EntityAdapter<Joke> = createEntityAdapter<Joke>({
   selectId: (model: Joke) => model.id,
