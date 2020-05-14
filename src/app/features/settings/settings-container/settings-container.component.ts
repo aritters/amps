@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { RootStoreState } from './../../../root-store';
 import { CoreStoreActions, CoreStoreSelectors } from './../../../root-store/core-store';
 import { Settings } from './../../../root-store/core-store/models';
+import { NotificationService } from './../../../shared/services/notification.service';
 
 @Component({
   templateUrl: './settings-container.component.html',
@@ -29,10 +30,18 @@ export class SettingsContainerComponent implements OnInit {
     { value: 'he', label: 'he' }
   ];
 
-  constructor(private store$: Store<RootStoreState.State>) { }
+  constructor(
+    private store$: Store<RootStoreState.State>,
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit() {
     this.settings$ = this.store$.pipe(select(CoreStoreSelectors.selectSettings));
+
+    this.notificationService.error('teste');
+    this.notificationService.info('teste');
+    this.notificationService.success('teste');
+    this.notificationService.warn('teste');
   }
 
   onLanguageSelect({ value: language }) {

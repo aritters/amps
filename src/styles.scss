@@ -28,19 +28,23 @@ body {
 .default-theme {
   @include angular-material-theme($default-theme);
   @include amps-theme($default-theme);
+  @include amps-notification-overlays($default-theme);
 }
 
 .light-theme {
   @include angular-material-theme($light-theme);
   @include amps-theme($light-theme);
+  @include amps-notification-overlays($light-theme);
 }
 
 .dark-theme {
   @include angular-material-theme($dark-theme);
   @include amps-theme($dark-theme);
+  @include amps-notification-overlays($dark-theme);
 }
 
 .nature-theme {
   @include angular-material-theme($nature-theme);
   @include amps-theme($nature-theme);
+  @include amps-notification-overlays($nature-theme);
 }
